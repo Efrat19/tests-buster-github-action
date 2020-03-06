@@ -9,11 +9,11 @@ inputs:
     description: 'The test files search pattern. Accepts a js regex, defaults to ".spec.js$"'
     required: false
     default: '.spec.js$'
-  dry-run:  # id of input
+  dry_run:  # id of input
     description: 'Scan the files without changing them. Run it before the actual slaughter to see how many tests can be busted'
     required: false
     default: false
-  auto-remove:  # id of input
+  auto_remove:  # id of input
     description: 'Automatically remove empty test files'
     required: false
     default: true
@@ -31,10 +31,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.path }}
-    - ${{ inputs.pattern }}
-    - ${{ inputs.dry-run }}
-    - ${{ inputs.auto-remove }}
-    - ${{ inputs.version }}
-    - ${{ inputs.help }}
