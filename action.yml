@@ -1,15 +1,40 @@
-name: 'Hello World'
+name: 'Tests Buster'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  path:  # id of input
+    description: 'The project root directory - where your package.json is. Defaults to current location.'
+    required: false
+    default: '.'
+  pattern:  # id of input
+    description: 'The test files search pattern. Accepts a js regex, defaults to ".spec.js$"'
+    required: false
+    default: '.spec.js$'
+  dry-run:  # id of input
+    description: 'Scan the files without changing them. Run it before the actual slaughter to see how many tests can be busted'
+    required: false
+    default: false
+  auto-remove:  # id of input
+    description: 'Automatically remove empty test files'
+    required: false
+    default: true
+  version:  # id of input
+    description: 'Print version information and quit.'
+    required: false
+    default: false
+  help:  # id of input
+    description: 'Display usage and quit.'
+    required: false
+    default: false
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.path }}
+    - ${{ inputs.pattern }}
+    - ${{ inputs.dry-run }}
+    - ${{ inputs.auto-remove }}
+    - ${{ inputs.version }}
+    - ${{ inputs.help }}
