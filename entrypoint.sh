@@ -27,5 +27,5 @@ if usesBoolean "${INPUT_AUTO_REMOVE}"; then
 fi
 
 cd ${INPUT_PATH}
-npm i 
+npm i > /dev/null
 tests-buster bust ${HELP} ${VERSION} ${DRY_RUN} ${AUTO_REMOVE} --pattern ${INPUT_PATTERN}
