@@ -25,4 +25,7 @@ fi
 if usesBoolean "${INPUT_AUTO_REMOVE}"; then
   AUTO_REMOVE="--auto-remove"
 fi
-tests-buster bust ${HELP} ${VERSION} ${DRY_RUN} ${AUTO_REMOVE} --path ${INPUT_PATH} --pattern ${INPUT_PATTERN}
+
+cd INPUT_PATH
+npm i 
+tests-buster bust ${HELP} ${VERSION} ${DRY_RUN} ${AUTO_REMOVE} --pattern ${INPUT_PATTERN}
