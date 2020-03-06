@@ -5,25 +5,24 @@ function usesBoolean() {
   [ ! -z "${1}" ] && [ "${1}" = "true" ]
 }
 
+HELP=""
+VERSION=""
+DRY_RUN=""
+AUTO_REMOVE=""
+
 if usesBoolean "${INPUT_HELP}"; then
-  tests-buster bust --help
-  exit 0
+  HELP="--help"
 fi
 
 if usesBoolean "${INPUT_VERSION}"; then
-  tests-buster bust --version
-  exit 0
+  VERSION="--version"
 fi
-
-DRY_RUN=""
-AUTO_REMOVE=""
 
 if usesBoolean "${INPUT_DRY_RUN}"; then
   DRY_RUN="--dry-run"
 fi
 
 if usesBoolean "${INPUT_AUTO_REMOVE}"; then
-  DRY_RUN="--auto-remove"
+  AUTO_REMOVE="--auto-remove"
 fi
-
-tests-buster bust ${DRY_RUN} ${AUTO_REMOVE} --path ${INPUT_PATH} --pattern ${INPUT_PATTERN}
+tests-buster bust ${HELP} ${VERSION} ${DRY_RUN} ${AUTO_REMOVE} --path ${INPUT_PATH} --pattern ${INPUT_PATTERN}
