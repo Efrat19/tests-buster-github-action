@@ -1,5 +1,6 @@
-# Container image that runs your code
-FROM efrat19/tests-buster
+FROM node:lts-alpine
+
+RUN npm i -g tests-buster
 
 ADD entrypoint.sh /entrypoint.sh
 
