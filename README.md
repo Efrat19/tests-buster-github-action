@@ -12,19 +12,19 @@ the tests-buster will crawl in your test files, wisely analyze your tests and cu
 
 ## Inputs
 
-### `path`
+#### `path`
 
 The project root directory - where your package.json is. **Defaults to current location.**
 
-### `pattern`
+#### `pattern`
 The test files search pattern. Accepts a js regex, **default: ".spec.js$"**
-### `dry_run`
+#### `dry_run`
 Scan the files without changing them. Run it before the actual slaughter to see how many tests can be busted **default: false**
-### `auto_remove`
+#### `auto_remove`
 Automatically remove empty test files **default: true**
-### `version`
+#### `version`
 Print version information and quit. **default: false**
-### `help`
+#### `help`
 Display usage and quit. **default: false**
 
 ## Example usage
